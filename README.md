@@ -11,6 +11,8 @@
 
 ## 실행 방법
 
+### 방법 1: 소스 코드 직접 컴파일
+
 1. Java 개발 환경 준비 (JDK 17 이상 권장)
 
 2. 프로젝트 클론 또는 다운로드
@@ -30,6 +32,16 @@ javac -d bin src/*.java
 
 ```bash
 java -cp bin Main
+```
+
+### 방법 2: JAR 파일 직접 실행
+
+1. result 폴더의 stock-trading.jar 파일 다운로드
+
+2. 실행
+
+```bash
+java -jar stock-trading.jar
 ```
 
 ## 고객사 요구사항
