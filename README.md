@@ -9,6 +9,27 @@
 - 보유 주식 현황 확인
 - 계좌 입금
 
+## 프로젝트 구조
+
+```
+java-stock
+├── .github/workflows/            # GitHub Actions CI/CD 설정
+│   └── build.yml                   # 자동 빌드 및 jar 파일 생성 파이프라인
+│
+├── src/                          # 소스 코드 디렉토리
+│   ├── Main.java                   # 프로그램 진입점
+│   ├── Stock.java                  # 주식 종목 정보 클래스
+│   ├── StockService.java           # 주식 서비스
+│   ├── MockStockService.java       # 테스트용 모의 주식 서비스
+│   ├── User.java                   # 사용자 정보 클래스
+│   └── Utils.java                  # 공통 유틸리티 함수
+│
+├── result/                       # 빌드 결과물 디렉토리
+│   └── stock-trading.jar           # 실행 가능한 JAR 파일
+│
+└── README.md                     # 프로젝트 README
+```
+
 ## 실행 방법
 
 ### 방법 1: 소스 코드 직접 컴파일
