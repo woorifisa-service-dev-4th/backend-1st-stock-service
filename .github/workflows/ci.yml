@@ -1,0 +1,38 @@
+name: Java CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: "temurin"
+
+      - name: Create directories
+        run: |
+          mkdir -p result
+          mkdir -p build/classes
+
+      - name: Compile Java files
+        run: |
+          javac -d build/classes src/*.java src/parser/*.java
+
+      - name: Create JAR
+        run: jar -cf result/stock-app.jar -C build/classes .
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add result/
+          git commit -m "Update JAR file" || exit 0
+          git push
